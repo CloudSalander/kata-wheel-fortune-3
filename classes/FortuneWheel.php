@@ -9,11 +9,8 @@ class FortuneWheel {
         $this->currentValueIndex = 0;
     }
 
-    public function throw(): void {
+    public function throw(): int | string {
         $this->currentValueIndex = array_rand(self::VALUES);
-    }
-
-    public function getCurrentValue(): int | string {
         return self::VALUES[$this->currentValueIndex];
     }
 
