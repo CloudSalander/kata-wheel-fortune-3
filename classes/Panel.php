@@ -25,7 +25,7 @@ class Panel {
             }
             ++$currentCharIndex;
         }
-        echo PHP_EOL.$this->clue;
+        echo PHP_EOL.$this->clue.PHP_EOL;
     }
 
     public function isSolved(): bool {
