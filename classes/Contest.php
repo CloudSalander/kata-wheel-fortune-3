@@ -20,11 +20,14 @@ class Contest {
             $currentContestant = $this->contestants[$this->currentContestantIndex];
             echo $currentContestant->getName()." say a letter!".PHP_EOL;
             $wheelValue = $this->wheel->throw();
+            echo $wheelValue;
             if($wheelValue == 'Bankruptcy') {
                 $currentContestant->declareBankruptcy();
                 ++$this->turnNumber;
             }
-            //else if($wheelValue == 'Lose')
+            else if($wheelValue == 'Lose') {
+                ++$this->turnNumber;
+            }
             else { 
                 $currentLetter = $currentContestant->sayLetter();
                 echo PHP_EOL;
