@@ -2,11 +2,11 @@
 class Contestant {
 
     private string $name;
-    private int $points;
+    public int $points;
 
     public function __construct(string $name){
         $this->name = $name;
-        $this->points = 0;
+        $this->points = 500;
     }
     public function sayLetter(): string { 
         //TODO: Check right input here. Just one char. Char must be an allowed letter.
@@ -16,6 +16,10 @@ class Contestant {
     public function getName(): string {
         return $this->name;
     }
+
+    public function declareBankruptcy(): void {
+        $this->points = 0;
+    } 
 }
 
 ?>
