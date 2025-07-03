@@ -9,13 +9,11 @@ class Contest {
     const WHEEL_RESULT_MSG = "Result throw result was ";
     const BANKRUPTCY_MSG = "OOOOOOOOOOOOOOOOOOOOOHHHHHH!!!";
     const LOSE_TURN_MSG = "Oh...";
-
-    private FortuneWheel $wheel;
-    private int $currentContestantIndex;
     
     public function __construct(private Panel $panel, private array $contestants) {
         $this->turnNumber = 0;
         $this->wheel = new FortuneWheel();
+        $this->currentContestantIndex = 1;
     }
     
     public function play(): void {
