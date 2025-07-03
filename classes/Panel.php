@@ -40,8 +40,8 @@ class Panel {
         if(count($foundIndexs) > 0) {
             $showedLetters =$this->showLetters($foundIndexs);
             if($showedLetters > 0) return $showedLetters;
-            return 0;
         }
+        return 0;
     }
     
     private function checkNewLine(int $charsNumber): void  {
