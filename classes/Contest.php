@@ -36,6 +36,7 @@ class Contest {
             else $passTurn = $this->playLetter($currentContestant,$wheelValue);
 
             if($passTurn) ++$this->turnNumber;
+            $this->showScores();
         }
     }
 
@@ -53,6 +54,12 @@ class Contest {
             return false;
         }     
         return true;
+    }
+
+    private function showScores(): void {
+        foreach($this->contestants as $contestant) {
+            echo $contestant->getName()." : ".$contestant->getScore().PHP_EOL;
+        }
     }
 }
 

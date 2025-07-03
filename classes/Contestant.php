@@ -24,6 +24,10 @@ class Contestant {
     public function updatePoints(int $score): void {
         $this->points += $score;
     }
+
+    public function getScore(): int {
+        return $this->points;
+    }
 }
 
 ?>
