@@ -35,15 +35,15 @@ class Panel {
         return true;
     }
 
-    public function solveLetter(string $letter): bool {
+    public function solveLetter(string $letter): int {
         $foundIndexs = array_keys($this->textToSolve,$letter,true);
         if(count($foundIndexs) > 0) {
             $showedLetters =$this->showLetters($foundIndexs);
-            if($showedLetters > 0) return true; 
-        } 
-        return false;
+            if($showedLetters > 0) return $showedLetters;
+            return 0;
+        }
     }
-
+    
     private function checkNewLine(int $charsNumber): void  {
         if($charsNumber >= self::MAX_CHARS_BY_LINE) echo PHP_EOL;
         else echo " ";

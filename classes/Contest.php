@@ -20,7 +20,7 @@ class Contest {
     
     public function play(): void {
         while(!$this->panel->isSolved()) {
-            $passTurn = false;
+            $passTurn = true;
 
             $this->panel->show();
 
@@ -33,7 +33,7 @@ class Contest {
 
             if($wheelValue == 'Bankruptcy') $this->makeBankruptcy($currentContestant);
             else if($wheelValue == 'Lose') echo self::LOSE_TURN_MSG.PHP_EOL;
-            else $passTurn = $this->playLetter($currentContestant);
+            else $passTurn = $this->playLetter($currentContestant,$wheelValue);
 
             if($passTurn) ++$this->turnNumber;
         }
@@ -44,10 +44,14 @@ class Contest {
         echo self::BANKRUPTCY_MSG.PHP_EOL;
     }
     
-    private function playLetter(Contestant $contestant): bool {
+    private function playLetter(Contestant $contestant, int $wheelValue): bool {
         $currentLetter = $contestant->sayLetter();
         echo PHP_EOL;
-        if($this->panel->solveLetter($currentLetter)) return false;
+        $solvedLetters = $this->panel->solveLetter($currentLetter);
+        if($solvedLetters > 0) {
+            $contestant->updatePoints($solvedLetters*$wheelValue);
+            return false;
+        }     
         return true;
     }
 }

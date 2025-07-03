@@ -19,7 +19,11 @@ class Contestant {
 
     public function declareBankruptcy(): void {
         $this->points = 0;
-    } 
+    }
+    
+    public function updatePoints(int $score): void {
+        $this->points += $score;
+    }
 }
 
 ?>
